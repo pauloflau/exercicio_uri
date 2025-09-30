@@ -16,7 +16,11 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
 	
-
+	public List<CustomerMinDto> findJpqlCity(String state){
+		List<CustomerMinDto> result2 = customerRepository.search2(state);
+				
+		return result2;
+	}
 	
 	public List<CustomerMinDto> findSqlCity(String state){
 		List<CustomerMinProjection>list = customerRepository.search1(state);
