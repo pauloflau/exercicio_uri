@@ -1,0 +1,18 @@
+package com.jmp.exercicios.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.jmp.exercicios.entities.Movie;
+import com.jmp.exercicios.projections.MovieMinProjection;
+
+public interface MovieRepository extends JpaRepository<Movie, Long>{
+	@Query(nativeQuery = true, value = "SELECT movies.id, movies.name "
+			+ "FROM movies "
+			+ "INNER JOIN genres ON movies.id_genres = genres.id "
+			+ "WHERE UPPER(genres.description)=UPPER(:genreName)")
+	List<MovieMinProjection> search1(String genreName);
+	
+}

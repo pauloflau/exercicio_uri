@@ -13,23 +13,23 @@ import com.jmp.exercicios.entities.Customer;
 import com.jmp.exercicios.services.CustomerService;
 
 @RestController
-@RequestMapping
-public class Controller {
+@RequestMapping(value="uri2602")
+public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
 	
-	@GetMapping("uri2602/jpql/{state}")
+	@GetMapping("jpql/{state}")
 	public List<CustomerMinDto> findJpqlCityCustomer(@PathVariable String state){
 		return customerService.findJpqlCity(state);		
 	}
 	
-	@GetMapping("uri2602/sql/{state}")
+	@GetMapping("sql/{state}")
 	public List<CustomerMinDto> findSqlCityCustomer(@PathVariable String state){
 		return customerService.findSqlCity(state);		
 	}
 	
-	@GetMapping("uri2602")
+	@GetMapping
 	public List<Customer> findAll(){
 		return customerService.findAll();		
 	}
