@@ -17,6 +17,11 @@ import com.jmp.exercicios.services.MovieService;
 public class MovieController {
 	@Autowired
 	private MovieService movieService;
+	
+	@GetMapping("jpql/{genre}")
+	public List<MovieMinDto> findJpqlGenreMovie(@PathVariable String genre){
+		return movieService.findJpqlGenre(genre);		
+	}
 
 	@GetMapping("sql/{genre}")
 	public List<MovieMinDto> findSqlGenreMovie(@PathVariable String genre){

@@ -17,6 +17,12 @@ public class MovieService {
 	@Autowired
 	private MovieRepository movieRepository;
 	
+	public List<MovieMinDto> findJpqlGenre(String genre){
+		List<MovieMinDto> result2 = movieRepository.search2(genre);
+				
+		return result2;
+	}
+	
 	public List<MovieMinDto> findSqlGenre(String genre){
 		List<MovieMinProjection>list = movieRepository.search1(genre);
 		List<MovieMinDto> result1 = list.stream()
