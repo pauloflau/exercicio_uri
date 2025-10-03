@@ -17,6 +17,11 @@ public class ProviderController {
 	@Autowired
 	private ProviderService providerService;
 	
+	@GetMapping("jpql")
+	public List<ProviderSumDto> findJpqlProvider(){
+		return providerService.findJpqlProvider();		
+	}
+	
 	@GetMapping("sql")
 	public List<ProviderSumDto> findSqlProvider(){
 		return providerService.findSqlProvider();		

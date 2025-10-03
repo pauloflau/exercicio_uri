@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.jmp.exercicios.dtos.ProviderSumDto;
 import com.jmp.exercicios.entities.Provider;
 import com.jmp.exercicios.projections.ProviderSumProjection;
 
@@ -19,4 +20,9 @@ public interface ProviderRepository extends JpaRepository<Provider, Long>{
 	   "INNER JOIN products ON products.id_providers = providers.id " +
 	   "GROUP BY providers.state")
 	List<ProviderSumProjection> search1();
+	
+    @Query(value = "SELECT new com.jmp.exercicios.dtos.ProviderSumDto(obj.provider.state, SUM(obj.amount)) "
+    		+ "FROM Product obj "
+    		+ "GROUP BY obj.provider.state")
+    List<ProviderSumDto> search2();
 }

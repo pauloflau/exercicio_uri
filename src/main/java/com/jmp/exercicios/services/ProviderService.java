@@ -17,6 +17,12 @@ public class ProviderService {
 	@Autowired
 	private ProviderRepository providerRepository;
 	
+	public List<ProviderSumDto> findJpqlProvider(){
+		List<ProviderSumDto> result2 = providerRepository.search2();
+				
+		return result2;
+	}
+	
 	public List<ProviderSumDto> findSqlProvider(){
 		List<ProviderSumProjection>list = providerRepository.search1();
 		List<ProviderSumDto> result1 = list.stream()
