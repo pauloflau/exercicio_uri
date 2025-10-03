@@ -10,12 +10,12 @@ import com.jmp.exercicios.projections.ProductMinProjection;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
-    @Query(nativeQuery = true, value = """
-        SELECT p.name AS name
-        FROM products p
-        INNER JOIN providers pr ON p.id_providers = pr.id
-        WHERE p.amount BETWEEN :min AND :max
-        AND pr.name LIKE CONCAT(:fornecedor, '%')
-    """)
-	List<ProductMinProjection> search1(Integer min, Integer max, String fornecedor);
+    @Query(nativeQuery = true, value = "SELECT products.name FROM products "
+    		+ "INNER JOIN providers ON products.id_providers = providers.id "
+    		+ "WHERE products.amount BETWEEN :min AND :max "
+    		+ "AND providers.name LIKE CONCAT(:letra, '%')")
+	List<ProductMinProjection> search1(Integer min, Integer max, String letra);
+    
+
 }
+

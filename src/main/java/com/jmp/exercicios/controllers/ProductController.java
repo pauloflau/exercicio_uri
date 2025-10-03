@@ -18,12 +18,20 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
+	@GetMapping("jpql")
+	public List<ProductMinDto> findJpqlProduct(
+			@RequestParam(required = false) Integer min,
+			@RequestParam(required = false) Integer max,
+			@RequestParam(required = false) String letra){
+		return productService.findJpqlProduct(min, max, letra);		
+	}
+	
 	@GetMapping("sql")
 	public List<ProductMinDto> findSqlProduct(
 			@RequestParam(required = false) Integer min,
 			@RequestParam(required = false) Integer max,
-			@RequestParam(required = false) String fornecedor){
-		return productService.findSqlProduct(min, max, fornecedor);		
+			@RequestParam(required = false) String letra){
+		return productService.findSqlProduct(min, max, letra);		
 	}
 	
 	@GetMapping

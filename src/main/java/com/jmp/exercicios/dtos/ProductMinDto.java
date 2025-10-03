@@ -1,7 +1,5 @@
 package com.jmp.exercicios.dtos;
 
-import java.util.Objects;
-
 import com.jmp.exercicios.projections.ProductMinProjection;
 
 public class ProductMinDto {
@@ -9,8 +7,7 @@ public class ProductMinDto {
 	public ProductMinDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public ProductMinDto(String name) {
-		super();
+	public ProductMinDto( String name) {
 		this.name = name;
 	}
 	
@@ -24,19 +21,8 @@ public class ProductMinDto {
 		this.name = name;
 	}
 	@Override
-	public int hashCode() {
-		return Objects.hash(name);
+	public String toString() {
+		return "ProductMinDto [name=" + name + "]";
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ProductMinDto other = (ProductMinDto) obj;
-		return Objects.equals(name, other.name);
-	}
-	
+
 }

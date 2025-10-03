@@ -16,6 +16,12 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	public List<ProductMinDto> findJpqlProduct(Integer min, Integer max, String letra){
+		List<ProductMinDto> result2 = productRepository.search2(min, max, letra);
+				
+		return result2;
+	}
+	
 	public List<ProductMinDto> findSqlProduct(Integer min, Integer max, String letra){
 		List<ProductMinProjection>list = productRepository.search1(min, max, letra);
 		List<ProductMinDto> result1 = list.stream()
