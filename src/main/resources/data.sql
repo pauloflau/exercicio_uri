@@ -1,4 +1,4 @@
-INSERT INTO customers (id, name, street, city, state, credit_limit)VALUES 
+INSERT INTO customers (id, name, street, city, state, credit_limit) VALUES 
   (1,	'Pedro Augusto da Rocha',	'Rua Pedro Carlos Hoffman',	'Porto Alegre',	'RS',	700.00),
   (2,	'Antonio Carlos Mamel',	'Av. Pinheiros', 'Belo Horizonte',	'MG',	3500.50),
   (3,	'Luiza Augusta Mhor',	'Rua Salto Grande',	'Niteroi',	'RJ',	4000.00),	
@@ -33,9 +33,47 @@ INSERT INTO products (id, name, amount, price, id_providers)VALUES
   (4,	'Executive Chair',	17,	9.90,	3),
   (5,	'Solar Panel',	30,	3000.25,	4);
   
-INSERT INTO lawyers(register, name, customers_number) VALUES 
+INSERT INTO lawyers(register, name, customers_number) VALUES
   (1648, 'Marty M. Harrison', 5),
   (2427, 'Jonathan J. Blevins', 15),
   (3365, 'Chelsey D. Sanders', 20),
   (4153, 'Dorothy W. Ford', 16),
   (5525, 'Penny J. Cormier', 6);
+
+  
+
+
+
+
+INSERT INTO departamentos (dnumero, dnome, cpf_gerente) VALUES
+(1010, 'Pesquisa', NULL),
+(1020, 'Ensino', NULL);
+
+
+INSERT INTO projetos (pnumero, pnome, dnumero) VALUES
+(2010, 'Alpha', 1010),
+(2020, 'Beta', 1020);
+
+
+INSERT INTO empregados (cpf, enome, salario, cpf_supervisor, dnumero) VALUES
+(49382234322, 'João Silva', 2350, NULL, 1010),
+(586733922290, 'Mario Silveira', 3500, NULL, 1010),
+(2434332222, 'Aline Barros', 2350, NULL, 1010),
+(1733332162, 'Tulio Vidal', 8350, NULL, 1020),
+(4244435272, 'Juliana Rodrigues', 3310, NULL, 1020),
+(1014332672, 'Natalia Marques', 2900, NULL, 1010);
+
+
+UPDATE empregados
+SET cpf_supervisor = 2434332222
+WHERE cpf IN (49382234322, 586733922290);
+
+
+UPDATE departamentos SET cpf_gerente = 49382234322 WHERE dnumero = 1010;
+UPDATE departamentos SET cpf_gerente = 2434332222 WHERE dnumero = 1020;
+
+
+INSERT INTO trabalha (cpf_emp, pnumero) VALUES
+(49382234322, 2010),
+(586733922290, 2020),
+(49382234322, 2020);
