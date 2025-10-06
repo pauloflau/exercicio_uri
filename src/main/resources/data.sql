@@ -32,3 +32,10 @@ INSERT INTO products (id, name, amount, price, id_providers)VALUES
   (3,	'Disney Wardrobe',	400,	829.50,	4),
   (4,	'Executive Chair',	17,	9.90,	3),
   (5,	'Solar Panel',	30,	3000.25,	4);
+  
+INSERT INTO lawyers(register, name, customers_number) VALUES 
+  (1648, 'Marty M. Harrison', 5),
+  (2427, 'Jonathan J. Blevins', 15),
+  (3365, 'Chelsey D. Sanders', 20),
+  (4153, 'Dorothy W. Ford', 16),
+  (5525, 'Penny J. Cormier', 6);
