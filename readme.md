@@ -31,5 +31,6 @@ As soluções apresentadas aqui refletem minha forma de resolver os problemas se
 ## 📧 Contato
 
 Caso queira trocar ideias ou sugerir melhorias:  
-[LinkedIn](https://https://www.linkedin.com/in/paulo-flau-43b667382/) 
+**Paulo Flau**
+- 💼 [LinkedIn](https://www.linkedin.com/in/pauloflau/)
 
